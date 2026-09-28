@@ -11,12 +11,12 @@ from PyQt6.QtWidgets import (
 )
 from serial.tools import list_ports
 
-from devices import DEVICE_TYPES
-from devices.scan import scan
+from src.devices import DEVICE_TYPES
+from src.devices.scan import scan
 
-LOGO = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "docs", "logo.png")
+LOGO = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), "docs", "logo.png")
 LOGO_HEIGHT = 160
-SETUP_FOLDER = "setups"
+SETUP_FOLDER = os.path.join("src", "setups")
 
 
 def read_setup(path):

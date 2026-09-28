@@ -1,4 +1,4 @@
-from devices import DEVICE_TYPES
+from src.devices import DEVICE_TYPES
 
 # A Modbus reply arrives within milliseconds, so silent addresses can be skipped quickly.
 # The ASCII instruments keep their own timeouts, because some only answer after a measurement.

@@ -6,10 +6,10 @@ from datetime import datetime
 
 from PyQt6.QtCore import QThread, pyqtSignal
 
-from control import PID
-from devices import DEVICE_TYPES
-from experiment import save_summary_plot
-from humidity import calibrated_rh, rh_from_dewpoint
+from src.control import PID
+from src.devices import DEVICE_TYPES
+from src.experiment import save_summary_plot
+from src.humidity import calibrated_rh, rh_from_dewpoint
 
 RECONNECT_INTERVAL = 10  # seconds between attempts to reach a device that is not answering
 

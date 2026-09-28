@@ -20,8 +20,8 @@ from PyQt6.QtWidgets import (
     QWidget,
 )
 
-from devices import DEVICE_TYPES
-from experiment import humidity_cycle
+from src.devices import DEVICE_TYPES
+from src.experiment import humidity_cycle
 
 CURRENT_STEP_COLOR = QColor(222, 235, 250)
 

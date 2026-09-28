@@ -46,7 +46,7 @@ share is roughly the RH.
 
 ## Setup catalog
 
-Keep one JSON file per rig or experiment type in `setups/`, and switch between them with
+Keep one JSON file per rig or experiment type in `src/setups/`, and switch between them with
 File → Open from setup catalog. The program reopens the last setup you used.
 
 ```json
@@ -70,7 +70,7 @@ File → Open from setup catalog. The program reopens the last setup you used.
   one that measures temperature (for example the Julabo's external probe) and one that
   measures dew point. Each entry adds one column under its own `name`, from the Magnus
   formula. With `calibrated` true, that result is then passed through the linear fit in
-  `calibrated_rh` in `humidity.py` (a salt-deliquescence fit; change the two numbers there
+  `calibrated_rh` in `src/humidity.py` (a salt-deliquescence fit; change the two numbers there
   to match your own cell). List the same pair twice under different names to log the raw
   and the calibrated value side by side. An entry whose devices are not in the setup is
   ignored. Edit the list in the **Devices…** dialog.
@@ -91,7 +91,7 @@ File → Open from setup catalog. The program reopens the last setup you used.
 
 ## Adding a new device
 
-1. Create `devices/my_device.py` with a class like this:
+1. Create `src/devices/my_device.py` with a class like this:
 
    ```python
    class MyDevice:
@@ -107,7 +107,7 @@ File → Open from setup catalog. The program reopens the last setup you used.
        def set(self, name, value): ... # only needed when controls is not empty
    ```
 
-2. Add it to `DEVICE_TYPES` in `devices/__init__.py`. That is what puts the driver in the
+2. Add it to `DEVICE_TYPES` in `src/devices/__init__.py`. That is what puts the driver in the
    device catalog above.
 
 The Devices dialog, manual controls, plot, CSV and experiment table then pick it up

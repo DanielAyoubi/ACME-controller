@@ -3,7 +3,7 @@ import time
 
 import serial
 
-from humidity import rh_from_dewpoint
+from src.humidity import rh_from_dewpoint
 
 # A reading looks like "DP = -7.6 C  AT = 24.1 C  RH = 23.5". A regex is used because
 # the buffer can hold partial or several lines while the reply trickles in.

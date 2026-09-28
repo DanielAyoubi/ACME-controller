@@ -8,13 +8,13 @@ from PyQt6.QtWidgets import (
     QVBoxLayout, QWidget,
 )
 
-from devices import DEVICE_TYPES
-from gui.devices_dialog import DevicesDialog, read_setup
-from gui.experiment_panel import ExperimentPanel, spin_box
-from gui.plot import LivePlot
-from worker import Worker, data_units
+from src.devices import DEVICE_TYPES
+from src.gui.devices_dialog import SETUP_FOLDER, DevicesDialog, read_setup
+from src.gui.experiment_panel import ExperimentPanel, spin_box
+from src.gui.plot import LivePlot
+from src.worker import Worker, data_units
 
-DEFAULT_SETUP = os.path.join("setups", "humidity.json")
+DEFAULT_SETUP = os.path.join("src", "setups", "humidity.json")
 
 
 class MainWindow(QMainWindow):
@@ -99,12 +99,12 @@ class MainWindow(QMainWindow):
             json.dump(self.setup, file, indent=2, ensure_ascii=False)
 
     def open_setup(self):
-        path, _ = QFileDialog.getOpenFileName(self, "Setup catalog", "setups", "Setup files (*.json)")
+        path, _ = QFileDialog.getOpenFileName(self, "Setup catalog", SETUP_FOLDER, "Setup files (*.json)")
         if path:
             self.load_setup(path)
 
     def save_setup_as(self):
-        path, _ = QFileDialog.getSaveFileName(self, "Save into setup catalog", "setups", "Setup files (*.json)")
+        path, _ = QFileDialog.getSaveFileName(self, "Save into setup catalog", SETUP_FOLDER, "Setup files (*.json)")
         if path:
             self.setup_path = path
             self.settings.setValue("setup_path", path)
