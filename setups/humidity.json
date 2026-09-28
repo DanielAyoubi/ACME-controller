@@ -1,0 +1,56 @@
+{
+  "log_folder": "data",
+  "poll_interval": 2.0,
+  "devices": [
+    {
+      "name": "Wet",
+      "type": "vogtlin_mfc",
+      "port": "COM23",
+      "baudrate": 9600,
+      "address": 24
+    },
+    {
+      "name": "Dry",
+      "type": "vogtlin_mfc",
+      "port": "COM22",
+      "baudrate": 9600,
+      "address": 1
+    },
+    {
+      "name": "Upstream",
+      "type": "firesting_o2",
+      "port": "",
+      "baudrate": 19200
+    },
+    {
+      "name": "Mirror",
+      "type": "dewmaster",
+      "port": "",
+      "baudrate": 19200
+    },
+    {
+      "name": "Chiller",
+      "type": "julabo_chiller",
+      "port": "",
+      "baudrate": 9600
+    }
+  ],
+  "computed_rh": [
+    {
+      "name": "Calibrated RH",
+      "temperature_from": "Chiller",
+      "dewpoint_from": "Mirror",
+      "calibrated": true
+    }
+  ],
+  "rh_control": {
+    "source": "Calibrated RH",
+    "humid_mfc": "Wet",
+    "dry_mfc": "Dry",
+    "target": 60.0,
+    "total_flow": 2.0,
+    "kp": 1.0,
+    "ki": 0.03,
+    "kd": 0.0
+  }
+}
